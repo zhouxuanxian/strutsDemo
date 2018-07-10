@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<validators>
+<field name="name">
+<filed-validator type="requiredstring">
+<message>用户名必须填写</message>
+
+</filed-validator>
+
+
+
+</field>
+
+
+
+
+
+
+
+
+
+
+
+</validators>

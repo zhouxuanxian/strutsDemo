@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="default" namespace="" extends="struts-default">
+		<interceptors>
+			<interceptor name="firstInterceptor"
+				class="com.zxx.interceptor.lanjieqiInterceptor"></interceptor>
+			<interceptor name="interceptor2" class="com.zxx.interceptor.interceptor2"></interceptor>
+			<interceptor-stack name="myIntercpterStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="firstInterceptor"></interceptor-ref>
+				<interceptor-ref name="interceptor2"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myIntercpterStack"></default-interceptor-ref>
+		<action name="update" class="com.zxx.action.LoginAction"
+			method="update">
+			<result type="redirectAction">delete</result>
+			<result name="login" type="redirect">/login.jsp</result>
+		</action>
+		<action name="delete" class="com.zxx.action.LoginAction"
+			method="delete">
+			<result>/success.jsp</result>
+		</action>
+		<action name="suibian" class="com.zxx.action.LoginAction">
+			<result>/success.jsp</result>
+		</action>
+
+		<action name="FormAction" class="com.zxx.action.FormAction">
+			<result>/success.jsp</result>
+		</action>
+
+		<action name="actionContext" class="com.zxx.action.ActionContextDemo">
+			<result>/success.jsp</result>
+		</action>
+
+		<action name="jiekouzhuru" class="com.zxx.action.jiekouZhuruAcion">
+			<result>/success.jsp</result>
+		</action>
+
+		<action name="lanjieqi" class="com.zxx.action.lanjieqi">
+			<interceptor-ref name="myIntercpterStack"></interceptor-ref>
+			<result>/success.jsp</result>
+		</action>
+
+		<action name="register" class="com.zxx.action.registerAction">
+			<result>/success.jsp</result>
+		</action>
+		<action name="actionContext" class="com.zxx.action.ActionContextDemo1">
+			<result>/success.jsp</result>
+		</action>
+		<action name="valueStackAction" class="com.zxx.action.valueStackAction">
+			<result>/success.jsp</result>
+		</action>
+		<action name="registerValidateAction" class="com.zxx.action.registerValidateAction">
+			<result>/success.jsp</result>
+			<result name="input">/register.jsp</result>
+		</action>
+
+		<action name="upload" class="com.zxx.action.uploadAction">
+			<result>/success.jsp</result>
+		</action>
+
+		<action name="downLoad" class="com.zxx.action.downLoadAction">
+			<result type="stream">
+				<param name="contentDisposition">attachment;filename=${fileName}</param>
+				<param name="inputName">fileStream</param>
+			</result>
+		</action>
+	</package>
+</struts>
